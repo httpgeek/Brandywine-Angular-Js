@@ -1,0 +1,90 @@
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-sanitize.js"></script>
+ <div class="row-bs3" id="faq" ng-app="ModalApp">
+  <div class="col-md-12">
+    <p class="text-center pagetitle-icon">&nbsp;</p>
+    <h2 class="text-center">Tenant Frequently Asked Questions</h2>
+    &nbsp;
+    <hr style="padding-bottom: 22px;" />
+  </div>
+  <div class="row-bs3">
+    <div class="col-md-8 col-md-offset-2">
+      <div ng-controller="ModalController as questions">
+        <div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+          <div class="panel panel-default" ng-repeat="item in questions.items">
+            <div class="panel-heading" id="accordion{{item.accordionNumber}}" role="tab">
+              <h4 class="panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{item.accordionNumber}}" aria-expanded="false" aria-controls="collapse{{item.accordionNumber}}">{{item.question}}</a></h4>
+            </div>
+            <div aria-labelledby="accordion{{item.accordionNumber}}" class="panel-collapse collapse" id="collapse{{item.accordionNumber}}" role="tabpanel">
+              <div class="panel-body">
+                <div class="wrapper">
+                  <p>{{item.answer}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+		<!---angular js-->
+ var app=angular.module('ModalApp',['ngSanitize']);
+ 
+ app.controller('ModalController',function(){
+  this.items = gems;
+ });
+	//start modify client's data
+ var gems = [
+  {
+   accordionNumber: '1',
+   question: 'How do I get an apartment?',
+   answer: 'Contact one of our communities or call the main Brandywine office to make an appointment to tour an apartment. All adults in the household must fill out a brief application, and submit the application fee, which covers credit and criminal background checks. If your income, legal history and landlord references meet our requirements, we will welcome you to join us.'
+  },
+	 {
+   accordionNumber: '2',
+   question: 'Do I make enough money?',
+   answer: 'We do not want to see you get in over your head, so we generally expect your household income to be at least three to four times what the rent is per month. That means if the rent is $600, we would want your household income to be $1,800 to $2,400 per month. Income requirements vary from community to community.'
+  },
+	 {
+   accordionNumber: '3',
+   question: 'May I get someone to co-sign my lease?',
+   answer: 'If your income is insufficient, we may still approve your application if you get someone with sufficient income and a good credit history to guarantee they will pay the rent if you do not. They would co-sign your rental contract, making them equally responsible for rent, damages, etc.'
+  },
+	 {
+   accordionNumber: '4',
+   question: 'What if I have to leave before me lease is up?',
+   answer: "We will not require you to pay the rent until your contract expires. But, you will lose your security deposit and you must pay an exit fee of one or two month's rent, depending on your community. You must also give us advanced notice of your intent to leave; the amount of notice depends on your community."
+  },
+	 {
+   accordionNumber: '5',
+   question: 'What do I have to pay before I move in?',
+   answer: "You must pay the first month's rent plus a security deposit. The deposit is held until you move out and may be used to pay for damages beyond normal wear and tear. You will get an accounting of its use and the balance due you, typically three weeks after your residency officially ends."
+  },
+	 {
+   accordionNumber: '6',
+   question: 'What do you look for on credit reports?',
+   answer: 'We want to see a history of financial responsibility, particularly as it relates to housing and utilities.'
+  },
+	 {
+   accordionNumber: '7',
+   question: 'Do you allow pets?',
+   answer: 'Some of our communities do. Ask the property manager or call the main Brandywine office to learn which ones.'
+  },
+	 {
+   accordionNumber: '8',
+   question: 'What utilities will I have to pay?',
+   answer: 'That varies by community. Tenant responsibility for utilities is included where rents are listed on this web site.'
+  },
+	 {
+   accordionNumber: '9',
+   question: 'What happens if I cannot pay on time?',
+   answer: 'Rent is due on the 1st of the month. There is a late fee for rent received after the 5th. If you know you will be late, call us at the main Brandywine office. We will try to arrange payments so you can keep from falling further behind. If that still happens, we will begin the eviction process.'
+  },
+	 {
+   accordionNumber: '10',
+   question: 'What happens if I have an emergency?',
+   answer: 'We have 24-hour on-call emergency services. The number for your community will be provided when you move in. Our technicians will respond during off hours only if you have: no heat, a plumbing or sewage problem that may damage property, no electricity, or a condition that may cause a fire. Anything else is routine maintenance that will be promptly addressed during normal business hours.'
+  }
+]
+</script></div>
+</div>
