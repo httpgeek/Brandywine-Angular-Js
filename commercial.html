@@ -1,0 +1,65 @@
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-sanitize.js"></script>
+
+<div class="container-bs3" id="commercial-page" ng-app="ModalApp">
+<div class="row-bs3">
+<div class="col-md-12">
+<p class="text-center"><img src="/dmslivecafe/2/102007/commercial_icon.png" /></p>
+
+<h2 class="text-center">Commercial</h2>
+
+<hr style="padding-bottom: 22px;" /></div>
+</div>
+
+<div ng-controller="ModalController as postings">
+<div class="row-bs3">
+<div ng-repeat="item in postings.items">
+<div class="clearfix" ng-if="$index % 2 == 0">&nbsp;</div>
+
+<div class="col-md-6" id="{{item.id}}">
+<div class="photo-container">
+<h2>{{item.name}}</h2>
+
+<div id="top-left-background"><img src="{{item.imageLink}}" /></div>
+
+<div class="prop-address">
+<h3>{{item.cityState}}</h3>
+</div>
+</div>
+
+<div class="property-description">
+<h4>Property Description</h4>
+<span ng-bind-html="item.description">{{item.description}}</span></div>
+
+<div class="button-section"><a href="contactus.aspx"><button class="btn btn-primary contact-button">Contact Us</button></a></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+<!---angular js-->
+ var app=angular.module('ModalApp',['ngSanitize']);
+ 
+ app.controller('ModalController',function(){
+  this.items = gems;
+ });
+	//start modify client's data
+ var gems = [
+  {
+   id: 'item1',
+   name: 'Garage, Laydown Yard, Warehouse, Office, Storage Facility, Land, Lot',
+   imageLink: '/dmslivecafe/2/102007/Garage-Warehouse-2.jpg',
+   cityState:"North Versailles, PA",
+description:'<p>430 East Pittsburgh McKeesport Blvd is a functional garage building with significant outdoor storage area. The property can accommodate a number of uses and is ideally suited for contractors, repair facilities and other light industrial uses.</p><p> </p><table class="table table-striped"><tbody><tr><td>Available space:</td><td>8500 sq.ft</td></tr><tr><td>Yard available:</td><td>1.5 acre fenced laydown yard</td></tr><tr><td>Office:</td><td>Approximately 800 sq.ft, Drive in doors, three grad level roll-up doors. Column spacing, clean span in garage bays. Clear height, 12’-16’.</td></tr><tr><td>Heating:</td><td>Gas fired heaters can be added</td></tr><tr><td>Lighting:</td><td>Fluorescent</td></tr><tr><td>Rent:</td><td>$2900/month + utilities</td></tr></tbody></table><p>If this sounds like a fit for you, please call Mateo at <a href="tel:412-394-9837">(412) 394-9837</a> or John at <a href="tel:412-349-3997">(412) 349-3997</a> to set up a time to see this property!</p>'
+  },
+	 {
+	id: 'item2',
+   name: 'Retail or Office commercial Storeroom in Shopping Center adjacent Walmart',
+   imageLink: '/dmslivecafe/2/102007/Village-Shoppes-2.jpg',
+   cityState:"North Versailles, PA",
+description:'<p>Come join the merchants of The Village Shoppes in North Versailles across the street from Walmart and Great Valley Shopping Center. 2,400 square feet of retail/commercial space can be yours for $14/s.f. plus utilities. This strip mall is located in a high traffic areas that will be sure to bring you the business you need to succeed.</p><p>If this sounds like the right opportunity for you, call the Brandywine Agency at (412) 823-9200 and ask to speak to George Arendas. He will be glad to show you around!</p>'
+	 }
+]
+
+
+</script>
