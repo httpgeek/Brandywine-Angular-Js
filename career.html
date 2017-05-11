@@ -1,0 +1,58 @@
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-sanitize.js"></script>
+
+<div class="row-bs3">
+  <div class="col-md-12">
+    <p class="text-center"><img src="/dmslivecafe/2/102007/Careers_Icon.png" /></p>
+    <h2 class="text-center">Careers</h2>
+    <hr style="padding-bottom: 22px;" />
+  </div>
+</div>
+<div class="row-bs3" id="careers" ng-app="ModalApp">
+  <div class="col-md-3 careers-contact text-center">
+    <h4>HOW TO APPLY</h4>
+    <p>Send resume to: <a href="mailto:skumar@brandywineagency.com">skumar@brandywineagency.com</a> or fax it to <a href="tel:412-349-3970">412-349-3970</a>.</p>
+  </div>
+  <div class="col-md-8 col-md-offset-1 career-positions">
+    <div ng-controller="ModalController as postings">
+      <div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+        <div class="panel panel-default" ng-repeat="item in postings.items">
+          <div class="panel-heading" id="accordion{{item.accordionNumber}}" role="tab">
+            <h4 class="panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{item.accordionNumber}}" aria-expanded="false" aria-controls="collapse{{item.accordionNumber}}">{{item.jobTitle}}</a></h4>
+          </div>
+          <div aria-labelledby="accordion{{item.accordionNumber}}" class="panel-collapse collapse" id="collapse{{item.accordionNumber}}" role="tabpanel">
+            <div class="panel-body">
+              <div class="wrapper">
+                <p><strong>Reports to : {{item.managerTitle}}</strong></p>
+                <span ng-bind-html="item.jobDescription">{{item.jobDescription}}</span>
+                <p><br />
+                  <strong>Qualifications</strong>: &nbsp;<br />
+					<span ng-bind-html="item.qualifications">{{item.qualifications}}</span></p>
+                <p><br />
+                  <strong style="line-height: 1.6em;">Certifications, Licenses, Registrations</strong></p>
+                <span ng-bind-html="item.certifications"> {{item.certifications}}</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+<!---angular js-->
+ var app=angular.module('ModalApp',['ngSanitize']);
+ 
+ app.controller('ModalController',function(){
+  this.items = gems;
+ });
+	//start modify client's data
+ var gems = [
+  {
+   id: 'item1',
+   name: 'Garage, Laydown Yard, Warehouse, Office, Storage Facility, Land, Lot',
+   imageLink: '/dmslivecafe/2/102007/Garage-Warehouse-2.jpg',
+   citState:"North Versailles, PA",
+description:'<p>430 East Pittsburgh McKeesport Blvd is a functional garage building with significant outdoor storage area. The property can accommodate a number of uses and is ideally suited for contractors, repair facilities and other light industrial uses.</p><p>&nbsp;</p><table class="table table-striped"><tbody><tr><td>Available space:</td><td>8500 sq.ft</td></tr><tr><td>Yard available:</td><td>1.5 acre fenced laydown yard</td></tr><tr><td>Office:</td><td>Approximately 800 sq.ft, Drive in doors, three grad level roll-up doors. Column spacing, clean span in garage bays. Clear height, 12’-16’.</td></tr><tr><td>Heating:</td><td>Gas fired heaters can be added</td></tr><tr><td>Lighting:</td><td>Fluorescent</td></tr><tr><td>Rent:</td><td>$2900/month + utilities</td></tr></tbody></table><p>If this sounds like a fit for you, please call Mateo at <a href="tel:412-394-9837">(412) 394-9837</a> or John at <a href="tel:412-349-3997">(412) 349-3997</a> to set up a time to see this property!.</p></div>'
+  }
+]
+</script>
